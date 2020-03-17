@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+       	.hidden{
+       		display: none;
+       	}
+        </style>
+        <title>Validação javaScript</title>
+
+        <script language="javascript" type="text/javascript">
+        	
+
+        	function validar(){
+        		nome = form.nome.value;
+        		telefone = form.telefone.value;
+
+        		if (nome == "") {
+				alert('Preencha o campo com seu nome');
+					form1.nome.focus();
+						return false;
+					}
+
+				if (nome.length < 5) {
+				alert('Digite seu nome completo');
+					form1.nome.focus();
+						return false;
+					}
+				if (telefone == "") {
+				alert('Preencha o campo com seu telefone');
+					form1.nome.focus();
+						return false;
+					}
+				if (telefone.length < 10) {
+				alert('Digite seu telefone completo');
+					form1.nome.focus();
+						return false;
+					}
+			}
+			
+			function mostra(id) {
+				
+				document.getElementById(id).style.display = 'block';
+			}
+			function esconde(id) {
+				
+				document.getElementById(id).style.display = 'none';
+			}
+			var btn = document.getElementById('botao');
+
+        		btn.addEventListener('click', function(){
+        			alert ("vc clicou")
+        		})
+
+        </script>		
+<style>
+label {
+	display: block; 
+	margin: 5px 0; 
+}
+input{
+	background-color: #B0E0E6;
+	font:12px verdana, arial, helvetica, sans-serif;
+	color:#003399;
+}
+select { 
+	background-color: #B0E0E6;
+	font:12px verdana, arial, helvetica, sans-serif;
+	color:#003399;
+}
+
+</style>
+</head>
+
+<body>
+<form action="#" method="post" name="form" id="form" onsubmit="return validaForm(this);">
+	<fieldset>
+    <legend>Dados Pessoais</legend>
+        <label>Nome: </label>
+        <input type="text" id="nome" value="" placeholder="Digite nome e sobrenome" />
+        <label>Telefone: </label>
+        <input type="number" id="telefone" value="" placeholder="99 - 99999999" />  
+        
+        <label>Como nos conheceu: </label>    
+        <select id="conheceu">
+            <option value="1">TV</option>
+            <option value="2">Internet</option>  
+            <option value="3">Outros</option>      
+        </select>
+
+        <p>Possui rede social? </p>
+            <label for="rede1"><input name="rede" id="rede1" value="sim" type="radio" onclick="mostra('rede')" />Sim</label>  
+            <label for="rede0"><input name="rede" id="rede0" value="nao" type="radio" onclick="esconde('rede')"/>Não</label>
+
+        <div id="rede" class="hidden" value="defalt null">    
+        <label>Quais: </label>  
+            <label for="face"><input name="face" id="face" type="checkbox" value="f">Facebook</label>
+            <label for="insta"><input name="insta" id="insta" type="checkbox" value="i">Instagram</label>
+            <label for="linke"><input name="linke" id="linke" type="checkbox" value="l">Linkedin</label>
+        </div>
+    </fieldset>
+            <input type="submit" id="btn" name="enviar" value="Enviar" onclick="return validar()" />
+    
+</form>
+</body>  
+</html>
